@@ -1,0 +1,1392 @@
+/* =========================================================
+   BookMyShow - User Profile & Booking History Styles
+   ========================================================= */
+
+.profile-page {
+  padding: 36px 20px 60px;
+  background: #f7f8fa;
+  min-height: 100vh;
+}
+
+.profile-card {
+  max-width: 960px;
+  margin: 0 auto 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 28px;
+  box-shadow: 0 4px 20px -2px rgba(16, 24, 40, 0.05), 0 2px 6px -1px rgba(16, 24, 40, 0.03);
+}
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid #f1f3f7;
+  padding-bottom: 20px;
+}
+
+.profile-card-header h2 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2533;
+  letter-spacing: -0.3px;
+}
+
+.profile-card-header p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.profile-logout-btn {
+  border: 1.5px solid #fed7d7;
+  background: #fff5f5;
+  color: rgb(235, 78, 98);
+  border-radius: 4px;
+  padding: 9px 16px;
+  font-weight: 700;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.profile-logout-btn:hover {
+  background: rgb(235, 78, 98);
+  color: #ffffff;
+  border-color: rgb(235, 78, 98);
+}
+
+/* Tabs */
+.profile-tabs {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  margin: 22px 0 24px;
+  width: 100%;
+  background: #f1f3f7;
+  border-radius: 4px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.profile-tab-button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: center;
+}
+
+.profile-tab-button:hover:not(.active) {
+  color: #1e293b;
+}
+
+.profile-tab-button.active {
+  background: #ffffff;
+  color: rgb(235, 78, 98);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.profile-tab-content {
+  animation: fadeIn 220ms ease;
+}
+
+/* Profile Form View */
+.profile-summary-card {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 22px;
+  align-items: center;
+  border: 1px solid #eef1f6;
+  border-radius: 8px;
+  padding: 22px;
+  margin-bottom: 24px;
+  background: #fbfcfe;
+}
+
+.profile-image-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(235, 78, 98, 0.2);
+  background: #ffffff;
+}
+
+.image-upload-hint {
+  color: rgb(235, 78, 98);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.profile-details-card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: #1e293b;
+}
+
+.profile-sub-text {
+  margin: 4px 0;
+  color: #64748b;
+  font-size: 13.5px;
+}
+
+.profile-sub-text strong {
+  color: #334155;
+}
+
+.profile-edit-btn {
+  display: inline-flex;
+  padding: 8px 16px;
+  background: #f55f5f;
+  color: #f3f5f8;
+  border: 1.5px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.profile-edit-btn:hover {
+  border-color: rgb(252, 250, 251);
+  color: rgb(252, 251, 252);
+}
+
+.profile-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.profile-fields-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  text-align: left;
+}
+
+.profile-fields-grid input,
+.profile-fields-grid select {
+  border: 1.5px solid #d1d5db;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  color: #0f172a;
+  background: #ffffff;
+  transition: border-color 0.18s ease;
+}
+
+.profile-fields-grid input:disabled,
+.profile-fields-grid select:disabled {
+  background: #f8fafc;
+  color: #64748b;
+  cursor: not-allowed;
+  border-color: #e2e8f0;
+}
+
+.profile-fields-grid input:focus,
+.profile-fields-grid select:focus {
+  border-color: rgb(235, 78, 98);
+  box-shadow: 0 0 0 3px rgba(235, 78, 98, 0.12);
+}
+
+.profile-hint {
+  margin: 18px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 4px;
+  padding: 10px 14px;
+  text-align: center;
+}
+
+.profile-message {
+  margin: 14px 0 0;
+  color: #059669;
+  font-size: 13.5px;
+  font-weight: 600;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 4px;
+  padding: 10px 14px;
+  text-align: center;
+}
+
+.profile-save-btn {
+  width: 100%;
+  border: none;
+  background: rgb(235, 78, 98);
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+  box-shadow: 0 3px 12px rgba(235, 78, 98, 0.28);
+}
+
+.profile-save-btn:hover {
+  background: #d63a4e;
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   Order History & Bookings Panel
+   ========================================================= */
+
+.order-history-panel {
+  width: 100%;
+  min-height: 280px;
+}
+
+.profile-success-banner {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+  animation: fadeIn 200ms ease;
+}
+
+.bookings-loading-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  gap: 14px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.profile-loading-spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid #e2e8f0;
+  border-top-color: rgb(235, 78, 98);
+  border-radius: 50%;
+  animation: profileSpin 0.7s linear infinite;
+}
+
+@keyframes profileSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Clean Empty State */
+.empty-history-card {
+  border: 1.5px dashed #e2e8f0;
+  border-radius: 8px;
+  padding: 52px 28px;
+  text-align: center;
+  color: #64748b;
+  background: #fbfcfe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-history-icon-box {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(235, 78, 98, 0.08);
+  color: rgb(235, 78, 98);
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.empty-history-card h3 {
+  margin: 0 0 8px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.empty-history-card p {
+  margin: 0 auto 22px;
+  max-width: 440px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+.profile-book-now-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(235, 78, 98);
+  color: #ffffff;
+  padding: 11px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  box-shadow: 0 3px 12px rgba(235, 78, 98, 0.28);
+}
+
+.profile-book-now-btn:hover {
+  background: #d63a4e;
+  transform: translateY(-1px);
+}
+
+/* Tickets Grid */
+.ticket-history-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ticket-history-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-history-header-bar h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.book-more-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgb(235, 78, 98);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.book-more-link:hover {
+  text-decoration: underline;
+  color: #d63a4e;
+}
+
+.ticket-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* =========================================================
+   BookMyShow Authentic Cinema M-Ticket Card
+   ========================================================= */
+
+.bms-cinema-ticket-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.07), 0 1px 4px rgba(15, 23, 42, 0.03);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  position: relative;
+}
+
+.bms-cinema-ticket-card:hover {
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.11);
+  transform: translateY(-2px);
+}
+
+/* Ticket Top Header Banner */
+.bms-ticket-head {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bms-ticket-title-block {
+  text-align: left;
+}
+
+.bms-ticket-type-pill {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: rgb(235, 78, 98);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.bms-movie-title {
+  margin: 2px 0 6px;
+  font-size: 21px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.bms-movie-meta-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.bms-tag-badge {
+  background: rgba(255, 255, 255, 0.15);
+  color: #f1f5f9;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.3px;
+}
+
+.bms-genre-text {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.bms-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34d399;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.bms-status-badge .status-dot {
+  color: #10b981;
+  font-size: 12px;
+}
+
+/* Main Body Grid: Poster + Details + Perforated QR */
+.bms-ticket-main-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr 160px;
+  gap: 22px;
+  padding: 20px 22px;
+  align-items: center;
+  position: relative;
+  background: #ffffff;
+}
+
+/* Left: Poster */
+.bms-poster-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bms-poster-img {
+  width: 120px;
+  height: 165px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  background: #f1f5f9;
+}
+
+/* Center: Information Details */
+.bms-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  text-align: left;
+}
+
+.bms-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.bms-row-icon {
+  font-size: 16px;
+  line-height: 1.3;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.bms-row-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.bms-row-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.bms-row-val {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.bms-info-row-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.bms-seats-pill-text {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.bms-payment-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.bms-amount-text {
+  color: rgb(235, 78, 98);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.bms-method-tag {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+
+.bms-paid-pill {
+  background: #ecfdf5;
+  color: #059669;
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.bms-booking-id-code {
+  font-family: monospace;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #1e293b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Right: Perforated Divider & QR Stub */
+.bms-qr-stub-wrap {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+}
+
+.bms-perforation-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  margin-right: 16px;
+  position: relative;
+}
+
+.bms-perforation-notch {
+  width: 20px;
+  height: 20px;
+  background: #f7f8fa;
+  border-radius: 50%;
+  position: absolute;
+  left: -10px;
+  z-index: 3;
+}
+
+.bms-perforation-notch.top {
+  top: -30px;
+}
+
+.bms-perforation-notch.bottom {
+  bottom: -30px;
+}
+
+.bms-perforation-line {
+  width: 0;
+  height: 100%;
+  min-height: 130px;
+  border-left: 2px dashed #cbd5e1;
+}
+
+.bms-qr-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  text-align: center;
+}
+
+.bms-qr-white-card {
+  background: #ffffff;
+  padding: 6px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.bms-qr-svg {
+  display: block;
+}
+
+.bms-scan-label {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.bms-token-code {
+  font-family: monospace;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0f172a;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   Bottom Attached Stub: Review & Rating Section
+   ========================================================= */
+
+.bms-ticket-review-strip {
+  border-top: 1px dashed #e2e8f0;
+  background: #fafbfc;
+  padding: 16px 22px;
+}
+
+.bms-ticket-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 22px;
+  border-top: 1px solid #f1f5f9;
+  background: #ffffff;
+}
+
+.bms-download-ticket-btn {
+  border: 1px solid rgb(235, 78, 98);
+  border-radius: 6px;
+  padding: 9px 16px;
+  background: rgb(235, 78, 98);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bms-download-ticket-btn:hover {
+  background: #d63a4e;
+}
+
+/* Prompt Card */
+.bms-review-prompt-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: #ffffff;
+  border: 1.5px dashed #cbd5e1;
+  border-radius: 8px;
+  padding: 12px 18px;
+}
+
+.bms-review-prompt-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #475569;
+}
+
+.bms-prompt-emoji {
+  font-size: 18px;
+}
+
+.bms-open-rate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.bms-open-rate-btn .bms-gold-star {
+  color: #eab308;
+  font-size: 16px;
+}
+
+.bms-open-rate-btn:hover {
+  background: #fff5f7;
+  border-color: rgb(235, 78, 98);
+  color: rgb(235, 78, 98);
+  transform: translateY(-1px);
+}
+
+/* Display Card (When reviewed) */
+.bms-review-display-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+
+.bms-review-display-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bms-review-stars-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bms-stars-group {
+  display: flex;
+  gap: 3px;
+}
+
+.bms-display-star {
+  font-size: 18px;
+  color: #e2e8f0;
+}
+
+.bms-display-star.filled {
+  color: #eab308;
+}
+
+.bms-review-stars-badge strong {
+  font-size: 14px;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.bms-verified-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #059669;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+.bms-review-quote-text {
+  margin: 0;
+  font-size: 14px;
+  color: #334155;
+  font-style: italic;
+  line-height: 1.5;
+  background: #f8fafc;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border-left: 3.5px solid rgb(235, 78, 98);
+}
+
+.bms-review-display-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bms-review-date-text {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.bms-review-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bms-edit-review-btn {
+  background: transparent;
+  border: none;
+  color: rgb(235, 78, 98);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 3px 6px;
+  transition: color 0.15s ease;
+}
+
+.bms-edit-review-btn:hover {
+  text-decoration: underline;
+  color: #d63a4e;
+}
+
+.bms-delete-review-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 3px 6px;
+  transition: color 0.15s ease;
+}
+
+.bms-delete-review-btn:hover {
+  color: #ef4444;
+  text-decoration: underline;
+}
+
+/* Interactive Review Form */
+.bms-review-form {
+  background: #ffffff;
+  border: 1.5px solid #fed7d7;
+  border-radius: 8px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 200ms ease;
+  text-align: left;
+}
+
+.bms-review-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bms-review-form-header h5 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.bms-verified-user-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #059669;
+}
+
+.bms-star-selector-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bms-selector-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.bms-star-buttons-cluster {
+  display: flex;
+  gap: 4px;
+}
+
+.bms-star-button {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #cbd5e1;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 2px;
+  transition: transform 0.12s ease, color 0.12s ease;
+}
+
+.bms-star-button:hover,
+.bms-star-button.active {
+  color: #eab308;
+  transform: scale(1.18);
+}
+
+.bms-rating-description-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.bms-review-textarea {
+  width: 100%;
+  border: 1.5px solid #d1d5db;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  resize: vertical;
+  min-height: 64px;
+  box-sizing: border-box;
+}
+
+.bms-review-textarea:focus {
+  border-color: rgb(235, 78, 98);
+  box-shadow: 0 0 0 3px rgba(235, 78, 98, 0.12);
+}
+
+.bms-review-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.bms-save-review-btn {
+  background: rgb(235, 78, 98);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bms-save-review-btn:hover {
+  background: #d63a4e;
+}
+
+.bms-cancel-review-btn {
+  background: #ffffff;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bms-cancel-review-btn:hover {
+  color: #1e293b;
+  background: #f1f5f9;
+}
+
+/* =========================================================
+   Responsive Breakpoints
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .profile-fields-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-summary-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .profile-image-wrap {
+    margin: 0 auto;
+  }
+
+  .bms-ticket-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bms-ticket-main-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 16px;
+  }
+
+  .bms-poster-box {
+    justify-content: flex-start;
+  }
+
+  .bms-poster-img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .bms-info-row-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bms-qr-stub-wrap {
+    flex-direction: column;
+    border-top: 2px dashed #cbd5e1;
+    padding-top: 16px;
+  }
+
+  .bms-perforation-divider {
+    display: none;
+  }
+
+  .bms-review-prompt-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bms-star-selector-row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-page {
+    padding: 20px 12px 40px;
+  }
+
+  .profile-card {
+    padding: 16px 14px;
+    border-radius: 12px;
+  }
+
+  .profile-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .profile-card-header h2 {
+    font-size: 20px;
+  }
+
+  .profile-logout-btn {
+    width: 100%;
+    text-align: center;
+    padding: 8px 14px;
+  }
+
+  .profile-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 4px;
+  }
+
+  .profile-tab-button {
+    padding: 8px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .profile-summary-card {
+    padding: 14px;
+  }
+
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+  }
+
+  .profile-field-item input {
+    padding: 9px 12px;
+    font-size: 13.5px;
+  }
+
+  .profile-save-btn {
+    width: 100%;
+  }
+
+  .bms-ticket-main-grid {
+    padding: 12px;
+  }
+
+  .bms-review-actions-row {
+    flex-direction: column-reverse;
+  }
+
+  .bms-save-review-btn,
+  .bms-cancel-review-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bms-status-badge.cancelled {
+  background: rgba(248, 68, 100, 0.14);
+  border-color: rgba(248, 68, 100, 0.34);
+  color: #b4233b;
+}
+
+.bms-status-badge.cancelled .status-dot {
+  color: #e13c4b;
+}
+
+.bms-ticket-actions {
+  gap: 10px;
+}
+
+.bms-cancel-ticket-btn {
+  padding: 9px 16px;
+  border: 1px solid #e13c4b;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #c53043;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.bms-cancel-ticket-btn:hover {
+  background: #fff1f2;
+  transform: translateY(-1px);
+}
+
+.bms-cancel-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.54);
+  backdrop-filter: blur(4px);
+}
+
+.bms-cancel-modal {
+  width: min(460px, 100%);
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.24);
+  animation: profileCancelModalIn 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.bms-cancel-modal h2 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 21px;
+}
+
+.bms-cancel-modal-event {
+  margin: 8px 0 0;
+  color: #334155;
+  font-weight: 700;
+}
+
+.bms-cancel-modal-policy {
+  margin: 8px 0 18px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.bms-cancel-refund-breakdown {
+  display: grid;
+  gap: 11px;
+  padding: 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.bms-cancel-refund-breakdown > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #475569;
+  font-size: 13px;
+}
+
+.bms-cancel-refund-breakdown strong {
+  color: #1e293b;
+  white-space: nowrap;
+}
+
+.bms-cancel-refund-breakdown .bms-cancel-refund-total {
+  padding-top: 11px;
+  border-top: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.bms-cancel-refund-total strong {
+  color: #e13c4b;
+  font-size: 16px;
+}
+
+.bms-cancel-error {
+  margin: 14px 0 0;
+  color: #b4233b;
+  font-size: 13px;
+}
+
+.bms-cancel-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.bms-cancel-modal-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.bms-cancel-keep-btn {
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+}
+
+.bms-cancel-confirm-btn {
+  border: 1px solid #e13c4b;
+  background: #e13c4b;
+  color: #ffffff;
+}
+
+.bms-cancel-confirm-btn:disabled,
+.bms-cancel-keep-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.bms-cancel-spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: profileCancelSpin 700ms linear infinite;
+}
+
+@keyframes profileCancelModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes profileCancelSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .bms-ticket-actions {
+    flex-direction: column-reverse;
+  }
+
+  .bms-cancel-ticket-btn,
+  .bms-download-ticket-btn {
+    width: 100%;
+  }
+
+  .bms-cancel-modal {
+    padding: 20px 16px;
+  }
+
+  .bms-cancel-modal-actions {
+    flex-direction: column-reverse;
+  }
+}

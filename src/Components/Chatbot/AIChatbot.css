@@ -1,0 +1,886 @@
+/* ==========================================================================
+   BookMyShow ShowBot AI Chatbot - Premium Floating Styles
+   ========================================================================== */
+
+.bms-ai-chatbot-root {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  font-family: var(--font-body, "Inter", -apple-system, sans-serif);
+}
+
+/* --------------------------------------------------------------------------
+   Floating Tooltip Callout
+   -------------------------------------------------------------------------- */
+.bms-ai-tooltip {
+  position: absolute;
+  bottom: 74px;
+  right: 4px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(248, 68, 100, 0.15);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 260px;
+  max-width: 300px;
+  cursor: pointer;
+  animation: bmsTooltipFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bms-ai-tooltip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.2), 0 0 0 1px var(--primary-brand, #f84464);
+}
+
+.bms-ai-tooltip-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(248, 68, 100, 0.12), rgba(220, 38, 38, 0.15));
+  color: #dc2626;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-bottom: 4px;
+}
+
+.bms-ai-tooltip-content p {
+  margin: 0;
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.bms-ai-tooltip-content strong {
+  color: #0f172a;
+}
+
+.bms-ai-tooltip-close {
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 2px;
+  transition: color 0.15s ease;
+}
+
+.bms-ai-tooltip-close:hover {
+  color: #0f172a;
+}
+
+@keyframes bmsTooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Floating Launcher Button
+   -------------------------------------------------------------------------- */
+.bms-ai-launcher-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #f84464 0%, #e11d48 50%, #be123c 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(248, 68, 100, 0.4), 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  outline: none;
+}
+
+.bms-ai-launcher-btn:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 16px 32px rgba(248, 68, 100, 0.5), 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.bms-ai-launcher-btn:active {
+  transform: scale(0.96);
+}
+
+.bms-ai-launcher-btn.open {
+  background: #1e293b;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.3);
+}
+
+.bms-ai-launcher-pulse {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(248, 68, 100, 0.6);
+  animation: bmsPulseRing 2.2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  pointer-events: none;
+}
+
+.bms-ai-launcher-btn.open .bms-ai-launcher-pulse {
+  display: none;
+}
+
+@keyframes bmsPulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.22);
+    opacity: 0;
+  }
+}
+
+.bms-ai-launcher-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bms-ai-launcher-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bms-ai-sparkle-dot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  background: #22c55e;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #22c55e;
+}
+
+.bms-ai-unread-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #10b981;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   Chat Window Drawer
+   -------------------------------------------------------------------------- */
+.bms-ai-chat-window {
+  position: absolute;
+  bottom: 74px;
+  right: 0;
+  width: 390px;
+  height: 600px;
+  max-height: calc(100vh - 120px);
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.24), 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: bmsChatExpand 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes bmsChatExpand {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+.bms-ai-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.bms-ai-header-bot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bms-ai-avatar-wrapper {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.bms-ai-header-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f84464;
+  box-shadow: 0 0 10px rgba(248, 68, 100, 0.4);
+}
+
+.bms-ai-status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background: #10b981;
+  border-radius: 50%;
+  border: 2px solid #0f172a;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.bms-ai-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.bms-ai-title-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bms-ai-title-row h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+}
+
+.bms-ai-verified-tag {
+  background: linear-gradient(135deg, #f84464, #ef4444);
+  font-size: 9px;
+  font-weight: 800;
+  color: #ffffff;
+  padding: 1px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.bms-ai-subtitle {
+  margin: 2px 0 0 0;
+  font-size: 11.5px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.bms-ai-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bms-ai-header-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bms-ai-header-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.bms-ai-header-btn.active {
+  color: #f84464;
+}
+
+.bms-ai-header-btn.close:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #f87171;
+}
+
+/* --------------------------------------------------------------------------
+   Body & Message Stream
+   -------------------------------------------------------------------------- */
+.bms-ai-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  scroll-behavior: smooth;
+}
+
+.bms-ai-msg-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+}
+
+.bms-ai-msg-row.user {
+  justify-content: flex-end;
+}
+
+.bms-ai-msg-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #f84464;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.bms-ai-msg-bubble-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 82%;
+  gap: 8px;
+}
+
+.bms-ai-msg-bubble {
+  position: relative;
+  padding: 12px 14px;
+  border-radius: 18px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.bms-ai-msg-row.bot .bms-ai-msg-bubble {
+  background: #ffffff;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  border-top-left-radius: 4px;
+}
+
+.bms-ai-msg-row.user .bms-ai-msg-bubble {
+  background: linear-gradient(135deg, #f84464 0%, #dc2626 100%);
+  color: #ffffff;
+  border-top-right-radius: 4px;
+  box-shadow: 0 4px 14px rgba(248, 68, 100, 0.28);
+}
+
+.bms-ai-msg-text p {
+  margin: 0 0 6px 0;
+}
+
+.bms-ai-msg-text p:last-child {
+  margin-bottom: 0;
+}
+
+.bms-ai-timestamp {
+  display: block;
+  font-size: 10px;
+  margin-top: 6px;
+  opacity: 0.65;
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   Cards Grid (Movie / Event / Activity / Sport)
+   -------------------------------------------------------------------------- */
+.bms-ai-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.bms-ai-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 8px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.bms-ai-card:hover {
+  transform: translateY(-1px);
+  border-color: #cbd5e1;
+}
+
+.bms-ai-card-img {
+  width: 46px;
+  height: 64px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #1e293b;
+}
+
+.bms-ai-card-details {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.bms-ai-card-title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bms-ai-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.bms-ai-card-rating {
+  font-size: 11px;
+  font-weight: 700;
+  color: #f59e0b;
+}
+
+.bms-ai-card-tag {
+  font-size: 10px;
+  background: #e2e8f0;
+  color: #475569;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.bms-ai-card-genre {
+  font-size: 11px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bms-ai-card-price {
+  margin: 0;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.bms-ai-card-btn {
+  align-self: flex-start;
+  margin-top: 2px;
+  background: linear-gradient(135deg, #f84464 0%, #dc2626 100%);
+  color: #ffffff;
+  border: none;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.bms-ai-card-btn:hover {
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   Offers & Discounts Cards
+   -------------------------------------------------------------------------- */
+.bms-ai-offers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.bms-ai-offer-card {
+  background: #fff;
+  border: 1px dashed #f87171;
+  border-radius: 12px;
+  padding: 10px 12px;
+  position: relative;
+  background-color: #fffaf0;
+}
+
+.bms-ai-offer-badge {
+  display: inline-block;
+  background: #f84464;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.bms-ai-offer-info strong {
+  display: block;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.bms-ai-offer-info p {
+  margin: 2px 0 6px 0;
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+.bms-ai-coupon-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bms-ai-coupon-code {
+  font-family: monospace;
+  font-size: 12.5px;
+  font-weight: 700;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+.bms-ai-copy-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bms-ai-copy-btn.copied {
+  background: #10b981;
+}
+
+/* --------------------------------------------------------------------------
+   Cinemas List
+   -------------------------------------------------------------------------- */
+.bms-ai-cinemas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.bms-ai-cinema-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.bms-ai-cinema-icon {
+  font-size: 18px;
+}
+
+.bms-ai-cinema-item strong {
+  display: block;
+  font-size: 12.5px;
+  color: #0f172a;
+}
+
+.bms-ai-cinema-item p {
+  margin: 0;
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* --------------------------------------------------------------------------
+   Action Buttons
+   -------------------------------------------------------------------------- */
+.bms-ai-actions-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.bms-ai-action-btn {
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.bms-ai-action-btn:hover {
+  background: #f84464;
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Quick Suggestion Chips
+   -------------------------------------------------------------------------- */
+.bms-ai-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.bms-ai-chip {
+  background: #ffffff;
+  border: 1px solid rgba(248, 68, 100, 0.3);
+  color: #be123c;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.15s ease;
+}
+
+.bms-ai-chip:hover {
+  background: #fff1f2;
+  border-color: #f84464;
+  transform: translateY(-1px);
+}
+
+/* --------------------------------------------------------------------------
+   Typing Indicator
+   -------------------------------------------------------------------------- */
+.bms-ai-typing-indicator {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  border-top-left-radius: 4px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.bms-ai-typing-indicator span {
+  width: 6px;
+  height: 6px;
+  background: #f84464;
+  border-radius: 50%;
+  animation: bmsBounce 1.4s infinite ease-in-out both;
+}
+
+.bms-ai-typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.bms-ai-typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.bms-ai-typing-indicator small {
+  margin-left: 6px;
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+@keyframes bmsBounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Footer Input Area
+   -------------------------------------------------------------------------- */
+.bms-ai-footer {
+  padding: 12px 14px 10px 14px;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bms-ai-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f1f5f9;
+  border-radius: 28px;
+  padding: 4px 6px 4px 14px;
+  border: 1px solid #e2e8f0;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.bms-ai-input-wrapper:focus-within {
+  border-color: #f84464;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(248, 68, 100, 0.12);
+}
+
+.bms-ai-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 13.5px;
+  color: #0f172a;
+  outline: none;
+  font-family: inherit;
+}
+
+.bms-ai-input::placeholder {
+  color: #94a3b8;
+}
+
+.bms-ai-voice-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+}
+
+.bms-ai-voice-btn:hover {
+  color: #f84464;
+  background: #fff1f2;
+}
+
+.bms-ai-voice-btn.listening {
+  color: #ef4444;
+  background: #fee2e2;
+  animation: bmsVoicePulse 1.2s infinite;
+}
+
+@keyframes bmsVoicePulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.bms-ai-send-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #f84464 0%, #dc2626 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 10px rgba(248, 68, 100, 0.35);
+  flex-shrink: 0;
+}
+
+.bms-ai-send-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(248, 68, 100, 0.45);
+}
+
+.bms-ai-send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.bms-ai-disclaimer {
+  text-align: center;
+  font-size: 10.5px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Mobile Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .bms-ai-chatbot-root {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .bms-ai-chat-window {
+    width: calc(100vw - 32px);
+    height: calc(100vh - 100px);
+    bottom: 70px;
+    right: 0;
+    border-radius: 20px;
+  }
+
+  .bms-ai-tooltip {
+    min-width: 220px;
+    max-width: 260px;
+    bottom: 68px;
+    right: 0;
+  }
+}

@@ -1,0 +1,889 @@
+.event-seat-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  min-height: 100vh;
+  padding: clamp(22px, 3vw, 40px) 24px 140px;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(248, 68, 100, 0.06), transparent 38rem),
+    var(--bg-page, #f5f6fa);
+  color: var(--text-main, #0f172a);
+}
+
+.event-seat-card,
+.summary-card,
+.partition {
+  max-width: 900px;
+  margin: 0 auto 16px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 18px 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.event-seat-card,
+.concert-arena-shell,
+.auditorium-layout {
+  width: min(1120px, 100%);
+  max-width: 1120px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.partition-balcony {
+  border-top: 3px double #cbd5e1;
+  border-radius: 45% 45% 12px 12px / 18px 18px 12px 12px;
+}
+
+.event-seat-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 32px);
+  padding: clamp(18px, 3vw, 30px);
+  border: 1px solid var(--border-light, #e2e8f0);
+  border-top: 4px solid var(--primary-brand, #f84464);
+  box-shadow: var(--shadow-md, 0 4px 14px rgba(15, 23, 42, 0.06));
+  text-align: left;
+}
+
+.event-seat-poster {
+  width: 150px;
+  height: 190px;
+  flex: 0 0 auto;
+  border-radius: var(--radius-md, 10px);
+  object-fit: cover;
+  background: var(--bg-subtle, #f8fafc);
+  box-shadow: var(--shadow-sm, 0 1px 3px rgba(0, 0, 0, 0.05));
+}
+
+.event-seat-details {
+  min-width: 0;
+  flex: 1;
+}
+
+.event-seat-details .section-kicker {
+  margin: 0 0 7px;
+  color: var(--primary-brand, #f84464);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.event-seat-description {
+  max-width: 720px;
+  margin-top: 10px !important;
+  line-height: 1.5;
+}
+
+.event-seat-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 14px;
+  margin-top: 18px;
+}
+
+.event-seat-meta p {
+  min-width: 0;
+  padding: 9px 11px;
+  border: 1px solid var(--border-subtle, #f1f5f9);
+  border-radius: 8px;
+  background: var(--bg-subtle, #f8fafc);
+  color: var(--text-body, #334155);
+  font-size: 12px;
+}
+
+.event-seat-meta p {
+  overflow-wrap: anywhere;
+}
+
+.event-seat-meta strong {
+  color: var(--text-main, #0f172a);
+}
+
+.summary-card {
+  padding: 22px;
+}
+
+.event-seat-card h2 {
+  margin: 0;
+  color: var(--text-main, #0f172a);
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+
+.event-seat-card p {
+  color: var(--text-muted, #64748b);
+}
+
+.seat-location {
+  color: var(--text-body, #334155) !important;
+}
+
+.screen {
+  width: min(300px, 80%);
+  height: 54px;
+  margin: 18px auto 28px;
+  padding: 14px 16px;
+  text-align: center;
+  border: 1px solid #d62e4e;
+  border-radius: 50% 50% 8px 8px / 70% 70% 8px 8px;
+  background: linear-gradient(135deg, #f84464, #d92f50);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  box-shadow: 0 8px 18px rgba(248, 68, 100, 0.2);
+}
+
+.auditorium-layout {
+  margin-top: 0;
+  padding: clamp(16px, 2.5vw, 28px);
+  overflow-x: auto;
+  border: 1px solid var(--border-light, #e2e8f0);
+  border-radius: var(--radius-lg, 16px);
+  background: #fff;
+  box-shadow: var(--shadow-md, 0 4px 14px rgba(15, 23, 42, 0.06));
+}
+
+.partition-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0 12px;
+}
+
+.partition-header h3 {
+  margin: 0;
+  color: var(--text-main, #0f172a);
+}
+
+.partition-header span {
+  color: var(--primary-brand, #f84464);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 8px;
+}
+
+.seat-row-half {
+  min-width: max-content;
+  padding: 5px 12px 10px;
+}
+
+.row-label {
+  width: 24px;
+  color: #666;
+  font-weight: 600;
+}
+
+.event-seat-selection .seat {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  border: 1px solid #20a36b;
+  border-radius: 7px 7px 5px 5px;
+  background: #fff;
+  color: #16784e;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.event-seat-selection .seat-row-half .seat {
+  transform: translateY(var(--seat-curve));
+}
+
+.event-seat-selection .seat-row-half .seat:hover:not(:disabled) {
+  transform: translateY(calc(var(--seat-curve) - 2px));
+}
+
+.event-seat-selection .seat:hover {
+  border-color: #168651;
+  background: #eaf8f0;
+}
+
+.event-seat-selection .seat.selected {
+  background: var(--primary-brand, #f84464);
+  color: #fff;
+  border-color: var(--primary-brand-dark, #dc2626);
+}
+
+.event-seat-selection .seat.sold {
+  background: #e2e8f0;
+  color: #94a3b8;
+  border-color: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.concert-partition {
+  overflow: hidden;
+}
+
+.circular-seat-layout {
+  position: relative;
+  width: min(340px, 100%);
+  height: 300px;
+  margin: 16px auto 4px;
+  border: 1px dashed #a3a3a3;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 29%, #f5f5f5 30% 54%, #fff 55%);
+}
+
+.concert-stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: grid;
+  width: 82px;
+  height: 38px;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #111;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.circular-seat {
+  position: absolute;
+  top: calc(50% - 16px);
+  left: calc(50% - 16px);
+  z-index: 2;
+  transform: rotate(var(--seat-angle)) translateY(calc(var(--seat-radius) * -1)) rotate(calc(var(--seat-angle) * -1));
+}
+
+.circular-seat:hover {
+  transform: rotate(var(--seat-angle)) translateY(calc(var(--seat-radius) * -1)) rotate(calc(var(--seat-angle) * -1)) translateY(-2px);
+}
+
+.concert-arena-shell {
+  margin-top: 0;
+  padding: clamp(14px, 2.5vw, 28px);
+  border-radius: var(--radius-lg, 16px);
+  background: var(--bg-white, #fff);
+  border: 1px solid var(--border-light, #e2e8f0);
+  box-shadow: var(--shadow-md, 0 4px 14px rgba(15, 23, 42, 0.06));
+}
+
+.concert-instructions {
+  margin: 0 0 18px;
+  color: var(--text-muted, #64748b);
+  font-size: 13px;
+  text-align: center;
+}
+
+.concert-tools {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.concert-tools button {
+  padding: 8px 16px;
+  border: 1px solid var(--border-light, #e2e8f0);
+  border-radius: var(--radius-full, 9999px);
+  background: var(--bg-white, #fff);
+  color: var(--text-body, #334155);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.concert-tools button.active {
+  border-color: var(--primary-brand, #f84464);
+  background: #fff1f3;
+  color: var(--primary-brand, #f84464);
+  box-shadow: 0 2px 8px rgba(248, 68, 100, 0.1);
+}
+
+.concert-tools button:hover:not(.active) {
+  border-color: var(--primary-brand, #f84464);
+  color: var(--primary-brand, #f84464);
+}
+
+.concert-tools button:focus-visible,
+.event-seat-pay-button:focus-visible,
+.confirm-btn:focus-visible {
+  outline: 3px solid var(--border-focus, rgba(248, 68, 100, 0.5));
+  outline-offset: 2px;
+}
+
+.concert-map-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle, #f1f5f9);
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at 50% 45%, #fff 0%, #fff 54%, #fff7f8 100%);
+}
+
+.concert-arena {
+  display: block;
+  width: 100%;
+  max-width: 940px;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.arena-bowl-outline {
+  fill: var(--bg-subtle, #f8fafc);
+  stroke: var(--border-light, #e2e8f0);
+  stroke-width: 2;
+}
+
+.arena-zone-shape {
+  cursor: pointer;
+  stroke: #fff;
+  stroke-width: 3;
+  transition: filter 0.16s ease, stroke 0.16s ease, stroke-width 0.16s ease;
+}
+
+.arena-zone-shape:hover,
+.arena-zone.hovered .arena-zone-shape {
+  filter: brightness(0.97);
+  stroke: var(--primary-brand, #f84464);
+  stroke-width: 4;
+}
+
+.arena-zone.fast-filling .arena-zone-shape {
+  stroke: var(--primary-brand, #f84464);
+  stroke-width: 4;
+}
+
+.arena-zone-shape:focus-visible {
+  outline: none;
+  stroke: var(--primary-brand, #f84464);
+  stroke-width: 6;
+}
+
+.arena-zone-label-group {
+  pointer-events: none;
+}
+
+.arena-zone-label {
+  fill: var(--text-main, #0f172a);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.arena-price-pill rect {
+  fill: var(--bg-white, #fff);
+  stroke: var(--border-light, #e2e8f0);
+  stroke-width: 1;
+}
+
+.arena-price-pill {
+  filter: drop-shadow(0 2px 3px rgba(15, 23, 42, 0.12));
+}
+
+.arena-price-pill text {
+  fill: var(--text-main, #0f172a);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.arena-seat {
+  cursor: pointer;
+  outline: none;
+}
+
+.arena-seat circle {
+  transition: transform 0.15s ease, stroke-width 0.15s ease;
+}
+
+.arena-seat:hover circle,
+.arena-seat:focus-visible circle {
+  stroke: var(--primary-brand, #f84464);
+  stroke-width: 3;
+  transform: scale(1.15);
+}
+
+.arena-seat text {
+  font-size: 11px;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.arena-seat.sold {
+  cursor: not-allowed;
+}
+
+.arena-runway path,
+.arena-runway rect {
+  fill: #252735;
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.arena-runway text {
+  fill: #fff;
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+.arena-runway .arena-runway-label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.arena-fast-filling-label {
+  fill: var(--primary-brand-dark, #dc2626);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+}
+
+.arena-hover-card {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: grid;
+  gap: 4px;
+  min-width: 185px;
+  padding: 10px 13px;
+  border: 1px solid var(--border-light, #e2e8f0);
+  border-left: 3px solid var(--primary-brand, #f84464);
+  border-radius: var(--radius-md, 10px);
+  background: rgba(255, 255, 255, 0.98);
+  color: var(--text-body, #334155);
+  font-size: 12px;
+  box-shadow: var(--shadow-md, 0 4px 14px rgba(15, 23, 42, 0.06));
+  pointer-events: none;
+}
+
+.arena-hover-card strong {
+  color: var(--text-main, #0f172a);
+  font-size: 14px;
+}
+
+.arena-hover-price {
+  color: var(--primary-brand-dark, #dc2626);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.concert-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 18px;
+  align-items: center;
+  color: var(--text-muted, #64748b);
+  font-size: 12px;
+  margin-top: 16px;
+}
+
+.legend-seat.selected {
+  background: var(--primary-brand, #f84464);
+  border-color: var(--primary-brand, #f84464);
+}
+
+.concert-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-seat {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 1px solid #20a36b;
+  background: #fff;
+}
+
+.legend-seat.sold {
+  border-color: #cbd5e1;
+  background: #cbd5e1;
+}
+
+.legend-seat.restricted {
+  background: #e5e5e5;
+  border-style: dashed;
+}
+
+.summary-card p {
+  margin: 6px 0;
+  color: #444;
+}
+
+.selection-summary-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.selection-summary-heading h3 {
+  margin: 0;
+  color: var(--text-main, #0f172a);
+  font-size: 16px;
+}
+
+.selection-summary-heading > span {
+  color: var(--text-muted, #64748b);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.selected-seat-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 8px;
+  padding: 0;
+  margin: 14px 0;
+  list-style: none;
+}
+
+.selected-seat-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-light, #e2e8f0);
+  border-radius: 8px;
+  background: var(--bg-subtle, #f8fafc);
+  color: var(--text-body, #334155);
+  font-size: 13px;
+}
+
+.selected-seat-list li strong {
+  color: var(--text-main, #0f172a);
+  white-space: nowrap;
+}
+
+.summary-card .selection-empty {
+  margin: 14px 0;
+  color: var(--text-muted, #64748b);
+}
+
+.summary-card .selection-total {
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light, #e2e8f0);
+  font-size: 16px;
+}
+
+.confirm-btn {
+  margin-top: 8px;
+  background: var(--primary-brand, #f84464);
+  color: #fff;
+  border: 1px solid var(--primary-brand, #f84464);
+  padding: 11px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13.5px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.confirm-btn:hover:not(:disabled) {
+  background: var(--primary-brand-dark, #dc2626);
+  border-color: var(--primary-brand-dark, #dc2626);
+  transform: translateY(-1px);
+}
+
+.confirm-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.event-seat-checkout-bar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 12px max(20px, env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
+  border-top: 1px solid var(--border-light, #e2e8f0);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 -8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.event-seat-checkout-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.event-seat-checkout-selection {
+  min-width: 0;
+}
+
+.event-seat-checkout-selection > strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--text-main, #0f172a);
+  font-size: 13px;
+}
+
+.event-seat-checkout-chips {
+  display: flex;
+  gap: 7px;
+  max-width: min(75vw, 880px);
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.event-seat-chip {
+  flex: 0 0 auto;
+  padding: 6px 9px;
+  border: 1px solid var(--border-light, #e2e8f0);
+  border-radius: var(--radius-sm, 6px);
+  background: var(--bg-subtle, #f8fafc);
+  color: var(--text-body, #334155);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.event-seat-pay-button {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid var(--primary-brand, #f84464);
+  border-radius: var(--radius-sm, 6px);
+  background: var(--primary-brand, #f84464);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+}
+
+.event-seat-pay-button:hover {
+  border-color: var(--primary-brand-dark, #dc2626);
+  background: var(--primary-brand-dark, #dc2626);
+  transform: translateY(-1px);
+}
+
+.event-seat-card {
+  animation: sectionEnter 450ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.auditorium-layout,
+.concert-arena-shell {
+  animation: sectionEnter 500ms 70ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.event-seat-selection .summary-card {
+  animation: sectionEnter 500ms 140ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.event-seat-checkout-bar {
+  animation: checkoutEnter 380ms 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (max-width: 760px) {
+  .event-seat-selection {
+    gap: 14px;
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .event-seat-card {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .event-seat-poster {
+    width: 112px;
+    height: 148px;
+  }
+
+  .event-seat-meta {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    margin-top: 12px;
+  }
+
+  .event-seat-meta p {
+    padding: 7px 9px;
+  }
+
+  .concert-map-wrap {
+    padding: 4px;
+  }
+
+  .concert-legend {
+    gap: 9px 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .event-seat-selection {
+    padding: 16px 10px 150px;
+  }
+
+  .event-seat-card,
+  .summary-card,
+  .partition {
+    padding: 14px 12px;
+    border-radius: 12px;
+  }
+
+  .event-seat-card {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .event-seat-poster {
+    width: 86px;
+    height: 116px;
+    border-radius: 8px;
+  }
+
+  .event-seat-card h2 {
+    font-size: 19px;
+  }
+
+  .event-seat-details .section-kicker {
+    margin-bottom: 5px;
+    font-size: 9px;
+  }
+
+  .event-seat-description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    font-size: 12px;
+  }
+
+  .screen {
+    height: 48px;
+    font-size: 13px;
+    padding: 12px;
+    margin: 12px auto 24px;
+  }
+
+  .seat-row {
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+
+  .event-seat-selection .seat {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+    font-size: 11px;
+    border-radius: 6px;
+  }
+
+  .partition {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .partition-header {
+    padding: 0 8px;
+  }
+
+  .partition-header h3 {
+    font-size: 16px;
+  }
+
+  .confirm-btn {
+    width: 100%;
+  }
+
+  .event-seat-checkout-bar {
+    padding: 10px 10px calc(10px + env(safe-area-inset-bottom));
+  }
+
+  .event-seat-checkout-inner {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .event-seat-checkout-chips {
+    max-width: 100%;
+  }
+
+  .event-seat-pay-button {
+    width: 100%;
+  }
+
+  .concert-arena-shell {
+    padding: 12px 9px;
+  }
+
+  .concert-tools button {
+    padding: 8px 13px;
+    font-size: 12px;
+  }
+
+  .concert-instructions {
+    padding: 0 4px;
+    font-size: 12px;
+  }
+
+  .concert-legend {
+    gap: 8px 12px;
+    font-size: 11px;
+  }
+
+  .arena-hover-card {
+    top: 6px;
+    left: 6px;
+    min-width: 155px;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .event-seat-card {
+    gap: 9px;
+    padding: 12px 10px;
+  }
+
+  .event-seat-poster {
+    width: 72px;
+    height: 100px;
+  }
+
+  .event-seat-card h2 {
+    font-size: 17px;
+  }
+
+  .event-seat-checkout-inner {
+    gap: 8px;
+  }
+
+  .event-seat-pay-button {
+    padding: 0 14px;
+  }
+}
+

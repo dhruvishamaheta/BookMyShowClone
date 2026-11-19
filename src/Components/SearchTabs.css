@@ -1,0 +1,53 @@
+.search-tabs {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  padding: 24px 0;
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.search-tab {
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.search-tab:hover {
+  color: #333;
+}
+
+.search-tab.active {
+  color: rgb(235, 78, 98);
+  font-weight: 600;
+}
+
+.search-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgb(235, 78, 98);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .search-tabs {
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .search-tab {
+    font-size: 14px;
+  }
+}

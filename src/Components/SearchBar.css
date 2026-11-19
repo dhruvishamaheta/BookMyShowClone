@@ -1,0 +1,153 @@
+.search-bar-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  height: 38px;
+  padding: 0 40px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.search-bar-wrapper:hover {
+  background: #ffffff;
+  border-color: #c4c4c4;
+}
+
+.search-bar-wrapper:focus-visible,
+.search-bar-wrapper:focus-within {
+  outline: none;
+  border-color: #f84464;
+  background: #ffffff;
+}
+
+.search-icon {
+  width: 15px;
+  height: 15px;
+  color: #222222;
+  flex-shrink: 0;
+  margin-right: 12px;
+  display: block;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #333333;
+  font-family: inherit;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  letter-spacing: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: normal;
+  display: block;
+}
+
+.search-input::placeholder {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: inherit;
+  letter-spacing: normal;
+  opacity: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.search-input::-webkit-input-placeholder {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: inherit;
+  letter-spacing: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.search-input::-moz-placeholder {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: inherit;
+  letter-spacing: normal;
+  opacity: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.search-input:-ms-input-placeholder {
+  color: #757575;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: inherit;
+  letter-spacing: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .search-bar-wrapper {
+    height: 36px;
+    padding: 0 10px;
+  }
+
+  .search-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+  }
+
+  .search-input {
+    font-size: 13px;
+  }
+
+  .search-input::placeholder,
+  .search-input::-webkit-input-placeholder,
+  .search-input::-moz-placeholder,
+  .search-input:-ms-input-placeholder {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar-wrapper {
+    height: 34px;
+    padding: 0 8px;
+  }
+
+  .search-icon {
+    width: 13px;
+    height: 13px;
+    margin-right: 8px;
+  }
+
+  .search-input {
+    font-size: 12px;
+  }
+
+  .search-input::placeholder,
+  .search-input::-webkit-input-placeholder,
+  .search-input::-moz-placeholder,
+  .search-input:-ms-input-placeholder {
+    font-size: 12px;
+  }
+}

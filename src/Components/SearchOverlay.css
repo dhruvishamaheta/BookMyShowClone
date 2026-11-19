@@ -1,0 +1,241 @@
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.search-overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: -1;
+}
+
+.search-overlay-content {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  margin: 60px 20px 20px 20px;
+  max-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-overlay-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px;
+  border-bottom: 1px solid #ececec;
+  flex-shrink: 0;
+}
+
+.search-overlay-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-overlay-icon {
+  width: 20px;
+  height: 20px;
+  color: #999;
+  flex-shrink: 0;
+}
+
+.search-overlay-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: #111;
+  padding: 8px 0;
+  font-family: inherit;
+}
+
+.search-overlay-input::placeholder {
+  color: #999;
+}
+
+.search-overlay-clear {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.search-overlay-clear:hover {
+  color: #666;
+}
+
+.search-overlay-close {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  border: none;
+  color: #666;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.search-overlay-close:hover {
+  background: #efefef;
+  color: #111;
+  transform: scale(1.05);
+}
+
+.search-overlay-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 20px;
+}
+
+.search-overlay-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.search-overlay-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.search-overlay-body::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.search-overlay-body::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+/* Tablet & Small Desktop */
+@media (max-width: 1024px) {
+  .search-overlay-content {
+    max-width: 100%;
+    margin: 40px 12px 12px 12px;
+    max-height: calc(100vh - 80px);
+  }
+
+  .search-overlay-header {
+    padding: 20px;
+  }
+
+  .search-overlay-input {
+    font-size: 15px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .search-overlay {
+    align-items: flex-end;
+  }
+
+  .search-overlay-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 16px 16px 0 0;
+    max-height: calc(100vh - 60px);
+    animation: slideUpMobile 0.4s ease-out;
+  }
+
+  @keyframes slideUpMobile {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  .search-overlay-header {
+    padding: 16px;
+    gap: 8px;
+  }
+
+  .search-overlay-input {
+    font-size: 16px;
+  }
+
+  .search-overlay-close {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .search-overlay-backdrop {
+    backdrop-filter: blur(2px);
+  }
+}
+
+@media (max-width: 480px) {
+  .search-overlay-content {
+    border-radius: 20px 20px 0 0;
+  }
+
+  .search-overlay-header {
+    padding: 14px;
+  }
+
+  .search-overlay-input {
+    font-size: 14px;
+  }
+
+  .search-overlay-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .search-overlay-close {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}

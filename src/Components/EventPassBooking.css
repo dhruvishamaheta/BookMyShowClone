@@ -1,0 +1,337 @@
+.event-pass-booking {
+  min-height: 100vh;
+  padding: 32px 20px 48px;
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pass-card {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  display: grid;
+  gap: 18px;
+}
+
+.pass-card h2 {
+  margin: 4px 0 10px;
+  color: #111;
+}
+
+.pass-card p {
+  margin: 6px 0;
+  color: #555;
+}
+
+.pass-card .location-link {
+  margin-top: -8px;
+}
+
+.comedy-pass-card {
+  max-width: 860px;
+  text-align: left;
+  gap: 22px;
+}
+
+.comedy-pass-heading {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #ededf0;
+}
+
+.comedy-pass-heading .section-kicker {
+  margin: 0 0 8px;
+  color: #e11d48;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.comedy-pass-heading h2 {
+  margin: 0 0 12px;
+}
+
+.comedy-pass-event-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.comedy-pass-event-info span {
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: #f5f5f7;
+  color: #42424a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.comedy-pass-location {
+  margin: 10px 0 0 !important;
+  color: #71717a !important;
+  font-size: 13px;
+}
+
+.comedy-pass-options {
+  display: grid;
+  gap: 10px;
+}
+
+.comedy-pass-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 17px;
+  border: 1px solid #e8e8ec;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.comedy-pass-description h3 {
+  margin: 0;
+  color: #232329;
+  font-size: 16px;
+}
+
+.comedy-pass-description p {
+  margin: 5px 0 9px;
+  color: #73737d;
+  font-size: 13px;
+}
+
+.comedy-pass-price {
+  color: #232329;
+  font-size: 16px;
+}
+
+.comedy-pass-price span {
+  color: #73737d;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.comedy-pass-quantity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.comedy-pass-quantity button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #f84464;
+  border-radius: 8px;
+  background: #fff;
+  color: #e11d48;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.comedy-pass-quantity button:disabled {
+  border-color: #e4e4e7;
+  color: #a1a1aa;
+  cursor: not-allowed;
+}
+
+.comedy-pass-quantity span {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.comedy-pass-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 20px;
+  padding: 18px;
+  border: 1px solid #ffe0e4;
+  border-radius: 12px;
+  background: #fff8f8;
+}
+
+.comedy-pass-summary p {
+  margin: 5px 0 0;
+  color: #73737d;
+  font-size: 12px;
+}
+
+.comedy-pass-total {
+  display: grid;
+  gap: 4px;
+  color: #73737d;
+  font-size: 12px;
+}
+
+.comedy-pass-total strong {
+  color: #232329;
+  font-size: 18px;
+}
+
+.comedy-pass-summary .book-btn {
+  min-width: 150px;
+  margin: 0;
+  background: #f84464;
+  color: #fff;
+}
+
+.comedy-pass-unavailable {
+  padding: 18px;
+  border-radius: 10px;
+  background: #fff8f8;
+  color: #a3213c !important;
+}
+
+.cafe-seat-layout .zone-card {
+  background: linear-gradient(135deg, #fffaf5, #fff);
+}
+
+.seat-grid {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.zone-card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px;
+  background: #fafafa;
+}
+
+.zone-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  align-items: center;
+}
+
+.row-label {
+  width: 24px;
+  color: #666;
+  font-weight: 600;
+}
+
+.seat {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.seat.selected {
+  background: rgb(235, 78, 98);
+  color: #fff;
+  border-color: rgb(235, 78, 98);
+}
+
+.summary-card {
+  margin-top: 14px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background: #fff7f7;
+}
+
+.book-btn {
+  margin-top: 10px;
+  background: #FFF1F3;
+  color: #F84464;
+  border: 1px solid #FECDD3;
+  padding: 11px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 13.5px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(248, 68, 100, 0.08);
+}
+
+.book-btn:hover:not(:disabled) {
+  background: #F84464;
+  color: #FFFFFF;
+  border-color: #F84464;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(248, 68, 100, 0.35);
+}
+
+.book-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.empty-state {
+  color: #111;
+}
+
+@media (max-width: 640px) {
+  .event-pass-booking {
+    padding: 20px 12px 40px;
+  }
+
+  .pass-card {
+    padding: 18px 14px;
+    border-radius: 14px;
+    gap: 14px;
+  }
+
+  .pass-card h2 {
+    font-size: 20px;
+  }
+
+  .comedy-pass-option {
+    align-items: flex-start;
+    padding: 13px;
+  }
+
+  .comedy-pass-summary {
+    grid-template-columns: 1fr auto;
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .comedy-pass-summary .book-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .zone-card {
+    padding: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .seat-row {
+    min-width: max-content;
+    gap: 5px;
+  }
+
+  .seat {
+    width: 30px;
+    height: 30px;
+  }
+
+  .book-btn {
+    width: 100%;
+  }
+}
+

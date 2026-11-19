@@ -1,0 +1,568 @@
+/* ==========================================================================
+   BookMyShow Showtime Page Styles
+   ========================================================================== */
+
+.showtime-page {
+  min-height: 100vh;
+  background-color: #f5f5f7;
+  color: #22252a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  padding-bottom: 60px;
+}
+
+/* 1. Hero Movie Summary Banner */
+.showtime-hero-banner {
+  background: radial-gradient(ellipse 80% 100% at 85% 50%, rgba(248, 68, 100, 0.1) 0%, transparent 60%), linear-gradient(135deg, #090e1a 0%, #0f172a 45%, #181d30 100%);
+  color: #ffffff;
+  padding: 38px 20px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.showtime-hero-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.showtime-hero-left {
+  flex: 1;
+}
+
+.showtime-kicker {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #f84464;
+  background: rgba(248, 68, 100, 0.15);
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(248, 68, 100, 0.3);
+}
+
+.showtime-movie-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 14px;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.showtime-tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.showtime-pill {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+  backdrop-filter: blur(4px);
+}
+
+.showtime-pill.lang-pill {
+  background: #334155;
+  color: #f8fafc;
+}
+
+.showtime-pill.rating-pill {
+  background: #f59e0b;
+  color: #1e1b4b;
+  font-weight: 700;
+}
+
+.showtime-movie-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #94a3b8;
+  max-width: 680px;
+  margin: 0;
+}
+
+.showtime-hero-poster-wrap {
+  flex-shrink: 0;
+}
+
+.showtime-hero-poster {
+  width: 130px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.showtime-poster-placeholder {
+  width: 130px;
+  height: 190px;
+  background: #334155;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+/* 2. Sticky Booking Filter Bar (Date Selector + City Selector) */
+.showtime-controls-strip {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.showtime-controls-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.showtime-dates-list {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0;
+}
+
+.showtime-date-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 62px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.showtime-date-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.showtime-date-btn.active {
+  background: #f84464;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(248, 68, 100, 0.3);
+}
+
+.date-day {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.date-number {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.date-month {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* City Location Indicator */
+.showtime-city-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  padding: 6px 14px;
+  border-radius: 10px;
+}
+
+.showtime-city-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.city-label {
+  color: #64748b;
+}
+
+.city-current-name {
+  color: #0f172a;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.showtime-change-city-btn {
+  background: #f84464;
+  color: #ffffff;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.showtime-change-city-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* 3. Main Content: Header & Filter Chips */
+.showtime-main-wrapper {
+  max-width: 1140px;
+  margin: 28px auto 0;
+  padding: 0 20px;
+}
+
+.showtime-header-row {
+  margin-bottom: 24px;
+}
+
+.showtime-header-title-box {
+  margin-bottom: 16px;
+}
+
+.showtime-section-heading {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.highlight-city {
+  color: #f84464;
+}
+
+.showtime-count-text {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+.showtime-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-chip {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-chip:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.filter-chip.active {
+  background: #1e293b;
+  color: #ffffff;
+  border-color: #1e293b;
+}
+
+/* 4. Theatres List Cards */
+.showtime-theatres-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.theatre-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.theatre-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+.theatre-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.theatre-info-col {
+  flex: 1;
+}
+
+.theatre-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.theatre-heart-icon {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.theatre-name {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+}
+
+.theatre-address {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.theatre-amenities-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.amenity-tag {
+  font-size: 11px;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #475569;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.cancellation-badge {
+  font-size: 11px;
+  font-weight: 700;
+  background: #ecfdf5;
+  color: #059669;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid #a7f3d0;
+}
+
+.theatre-screens-badge {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.screens-count {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.sound-type {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* Timings Grid */
+.theatre-timings-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.showtime-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 105px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #0f172a;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.showtime-btn:hover {
+  border-color: #f84464;
+  background: #fff1f2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(248, 68, 100, 0.15);
+}
+
+.showtime-btn .time-text {
+  font-size: 14px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.showtime-btn:hover .time-text {
+  color: #f84464;
+}
+
+.showtime-btn .screen-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #059669;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.showtime-btn .price-hint {
+  font-size: 9px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+/* Empty State Card */
+.showtime-empty-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.showtime-empty-card h3 {
+  font-size: 18px;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.showtime-empty-card p {
+  color: #64748b;
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+
+.reset-filter-btn {
+  background: #f84464;
+  color: #ffffff;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-filter-btn:hover {
+  background: #dc2626;
+}
+
+/* Global Empty State */
+.showtime-page.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.showtime-page.empty-state h2 {
+  font-size: 24px;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+.showtime-page.empty-state p {
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.showtime-page.empty-state button {
+  background: #f84464;
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .showtime-hero-container {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .showtime-hero-poster {
+    width: 90px;
+    height: 130px;
+  }
+
+  .showtime-movie-title {
+    font-size: 24px;
+  }
+
+  .showtime-controls-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .showtime-city-badge-wrap {
+    justify-content: space-between;
+  }
+
+  .theatre-header {
+    flex-direction: column;
+  }
+
+  .theatre-screens-badge {
+    text-align: left;
+  }
+}

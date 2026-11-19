@@ -1,0 +1,839 @@
+/* =========================================================
+   BookMyShow - Official Cinema Seat Selection Styles
+   Website Theme Palette: #f84464, #1f2533, #f5f6fa, #ffffff
+   ========================================================= */
+
+.bms-seat-layout-page {
+  min-height: 100vh;
+  background-color: var(--bg-page, #f5f6fa);
+  color: var(--text-main, #0f172a);
+  font-family: var(--font-body, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 96px;
+  overflow-x: hidden;
+}
+
+/* ---------------------------------------------------------
+   1. Authentic BookMyShow Top Header Bar (Website Dark Header)
+   --------------------------------------------------------- */
+.bms-seat-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #1f2533;
+  color: #ffffff;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.bms-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.bms-back-arrow-btn {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s ease, transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.bms-back-arrow-btn:hover {
+  background: rgba(248, 68, 100, 0.25);
+  color: var(--primary-brand, #f84464);
+  transform: translateX(-2px);
+}
+
+.bms-movie-details-header {
+  min-width: 0;
+}
+
+.bms-movie-title-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bms-header-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.2px;
+}
+
+.bms-cert-pill {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #e2e8f0;
+  letter-spacing: 0.4px;
+}
+
+.bms-header-subline {
+  font-size: 12.5px;
+  color: #94a3b8;
+  margin: 3px 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bms-header-subline strong {
+  color: #f3f4f6;
+  font-weight: 600;
+}
+
+.bms-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.bms-ticket-count-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(248, 68, 100, 0.12);
+  border: 1.5px solid var(--primary-brand, #f84464);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bms-ticket-count-chip:hover {
+  background: var(--primary-brand, #f84464);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(248, 68, 100, 0.4);
+}
+
+.bms-ticket-count-chip svg {
+  color: var(--primary-brand, #f84464);
+  transition: color 0.2s ease;
+}
+
+.bms-ticket-count-chip:hover svg {
+  color: #ffffff;
+}
+
+.bms-close-header-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.bms-close-header-btn:hover {
+  color: #ffffff;
+}
+
+/* ---------------------------------------------------------
+   2. Main Seating Area Canvas
+   --------------------------------------------------------- */
+.bms-seat-canvas-container {
+  max-width: 980px;
+  width: 100%;
+  margin: 20px auto 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px 24px 36px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #e2e8f0;
+}
+
+/* ---------------------------------------------------------
+   Screen View At Top (Themed BookMyShow Red Curved Bar)
+   --------------------------------------------------------- */
+.bms-screen-view {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto 36px;
+  text-align: center;
+  position: relative;
+}
+
+.bms-screen-arch {
+  height: 28px;
+  background: linear-gradient(180deg, rgba(248, 68, 100, 0.22) 0%, rgba(255, 255, 255, 0) 100%);
+  clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  margin-bottom: -6px;
+  pointer-events: none;
+}
+
+.bms-screen-bar {
+  width: 100%;
+  height: 22px;
+  border-top: 3.5px solid var(--primary-brand, #f84464);
+  border-radius: 50% 50% 0 0 / 18px 18px 0 0;
+  box-shadow: 0 -2px 12px rgba(248, 68, 100, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(248, 68, 100, 0.08) 0%, #ffffff 100%);
+}
+
+.bms-screen-text {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: var(--primary-brand, #f84464);
+  text-transform: uppercase;
+  margin-top: 1px;
+  text-shadow: 0 0 8px rgba(248, 68, 100, 0.25);
+}
+
+.bms-screen-note {
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin: 8px 0 0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* ---------------------------------------------------------
+   Cinema Tier Sections & Grid Structure
+   --------------------------------------------------------- */
+.bms-cinema-grid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  overflow-x: auto;
+  padding: 4px;
+}
+
+.bms-tier-section {
+  width: 100%;
+  min-width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bms-tier-header {
+  width: 100%;
+  max-width: 720px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.bms-tier-heading {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.bms-rows-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  align-items: center;
+  width: 100%;
+}
+
+.bms-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.bms-row-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+  width: 24px;
+  text-align: right;
+  margin-right: 8px;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.bms-seat-block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.bms-seat-group-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.bms-seat-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bms-seat-partition-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.recliner-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.bms-aisle-gap {
+  width: 28px;
+  flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------
+   Theme Consistent Seat Styling (#f84464 & Clean Surfaces)
+   --------------------------------------------------------- */
+.bms-seat {
+  width: 26px;
+  height: 28px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  user-select: none;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  transition: all 0.14s ease-in-out;
+  line-height: 1;
+}
+
+/* Available Seats */
+.bms-seat.available {
+  background-color: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  color: #334155;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.bms-seat.available:hover {
+  background-color: #fff1f3;
+  border-color: var(--primary-brand, #f84464);
+  color: var(--primary-brand, #f84464);
+  transform: scale(1.12);
+  box-shadow: 0 4px 10px rgba(248, 68, 100, 0.25);
+  z-index: 5;
+}
+
+/* Selected Seats (BookMyShow Coral Red) */
+.bms-seat.selected {
+  background-color: var(--primary-brand, #f84464) !important;
+  border: 1.5px solid var(--primary-brand, #f84464) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(248, 68, 100, 0.45);
+  transform: translateY(-1px);
+}
+
+.bms-seat.selected:hover {
+  background-color: #e03252 !important;
+  transform: translateY(-2px) scale(1.06);
+}
+
+/* Sold / Booked Seats */
+.bms-seat.sold {
+  background-color: #e2e8f0 !important;
+  border: 1.5px solid #e2e8f0 !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed !important;
+  box-shadow: none;
+  opacity: 0.75;
+}
+
+.bms-seat.sold .seat-number {
+  display: none;
+}
+
+/* Platinum Recliner Style */
+.bms-seat.recliner {
+  width: 42px;
+  height: 34px;
+  border-radius: 8px 8px 5px 5px;
+  font-size: 12px;
+  border-color: #a7b0be;
+  background: #fdfefe;
+}
+
+/* ---------------------------------------------------------
+   Legend Bar
+   --------------------------------------------------------- */
+.bms-legend-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid #f1f5f9;
+  width: 100%;
+}
+
+.bms-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bms-sample-seat {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.bms-sample-seat.available {
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+}
+
+.bms-sample-seat.selected {
+  background: var(--primary-brand, #f84464);
+  border: 1.5px solid var(--primary-brand, #f84464);
+  box-shadow: 0 1px 4px rgba(248, 68, 100, 0.35);
+}
+
+.bms-sample-seat.sold {
+  background: #e2e8f0;
+  border: 1.5px solid #e2e8f0;
+}
+
+.bms-legend-text {
+  font-size: 12.5px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------
+   Hover Badge Tooltip
+   --------------------------------------------------------- */
+.bms-hover-badge {
+  position: fixed;
+  bottom: 84px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2533;
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  z-index: 105;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.bms-hover-badge .dot {
+  color: #64748b;
+}
+
+.bms-hover-price {
+  color: var(--primary-brand, #f84464);
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   3. Bottom Sticky Checkout Action Bar
+   --------------------------------------------------------- */
+.bms-floating-checkout-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.08);
+  padding: 12px 24px;
+  z-index: 110;
+  animation: barSlideUp 0.2s ease-out;
+}
+
+@keyframes barSlideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.bms-checkout-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.bms-checkout-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.bms-checkout-seats-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.bms-checkout-chips {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.bms-seat-chip {
+  background: #fff1f3;
+  border: 1px solid #fecdd3;
+  color: var(--primary-brand, #f84464);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 5px;
+}
+
+.bms-pay-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #f84464 0%, #e63757 100%);
+  color: #ffffff;
+  border: 1px solid #e63757;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(248, 68, 100, 0.35);
+  flex-shrink: 0;
+}
+
+.bms-pay-cta-btn:hover {
+  background: linear-gradient(135deg, #f95572 0%, #e02f50 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(248, 68, 100, 0.45);
+}
+
+/* ---------------------------------------------------------
+   4. Authentic BookMyShow Ticket Count Selector Modal
+   --------------------------------------------------------- */
+.bms-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  z-index: 1200;
+  padding: 16px;
+}
+
+.bms-seat-count-dialog {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-shadow: 0 20px 48px rgba(15, 23, 42, 0.2);
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.bms-dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.bms-dialog-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.bms-dialog-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.bms-dialog-close:hover {
+  color: #0f172a;
+}
+
+.bms-vehicle-icon-display {
+  margin: 12px 0 16px;
+}
+
+.bms-vehicle-emoji {
+  font-size: 42px;
+  display: inline-block;
+  animation: bounceEmoji 0.3s ease;
+}
+
+@keyframes bounceEmoji {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.bms-count-pills-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.bms-count-pill {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #e2e8f0;
+  background: #f8fafc;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.bms-count-pill:hover {
+  border-color: var(--primary-brand, #f84464);
+  color: var(--primary-brand, #f84464);
+  background: #fff1f3;
+}
+
+.bms-count-pill.active {
+  background: var(--primary-brand, #f84464);
+  border-color: var(--primary-brand, #f84464);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(248, 68, 100, 0.45);
+}
+
+.bms-category-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 14px 10px;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 20px;
+}
+
+.bms-cat-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: center;
+}
+
+.bms-cat-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.bms-cat-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.bms-cat-status {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.bms-cat-status.available {
+  color: #10b981;
+}
+
+.bms-dialog-submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #f84464 0%, #e63757 100%);
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(248, 68, 100, 0.35);
+}
+
+.bms-dialog-submit-btn:hover {
+  background: linear-gradient(135deg, #f95572 0%, #e02f50 100%);
+  box-shadow: 0 6px 18px rgba(248, 68, 100, 0.45);
+}
+
+/* ---------------------------------------------------------
+   Responsive Tweaks
+   --------------------------------------------------------- */
+@media (max-width: 640px) {
+  .bms-seat-header {
+    padding: 10px 12px;
+  }
+
+  .bms-header-title {
+    font-size: 14.5px;
+  }
+
+  .bms-header-subline {
+    font-size: 11.5px;
+  }
+
+  .bms-seat-canvas-container {
+    padding: 14px 6px;
+    margin: 8px auto 16px;
+    border-radius: 0;
+  }
+
+  .bms-seat {
+    width: 24px;
+    height: 24px;
+    font-size: 9.5px;
+  }
+
+  .bms-seat.recliner {
+    width: 28px;
+    height: 26px;
+  }
+
+  .bms-aisle-gap {
+    width: 12px;
+  }
+
+  .bms-legend-bar {
+    gap: 12px;
+    padding: 8px 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .bms-checkout-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .bms-pay-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bms-dialog-card {
+    width: calc(100vw - 28px);
+    max-width: 380px;
+    padding: 20px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bms-seat {
+    width: 21px;
+    height: 21px;
+    font-size: 8.5px;
+    border-radius: 3px;
+  }
+
+  .bms-seat.recliner {
+    width: 25px;
+    height: 23px;
+  }
+
+  .bms-row-label {
+    width: 16px;
+    margin-right: 4px;
+    font-size: 10.5px;
+  }
+
+  .bms-row {
+    gap: 4px;
+  }
+
+  .bms-seat-block {
+    gap: 8px;
+  }
+
+  .bms-seat-group {
+    gap: 4px;
+  }
+
+  .bms-aisle-gap {
+    width: 8px;
+  }
+
+  .bms-ticket-count-chip {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .bms-floating-checkout-bar {
+    padding: 8px 12px;
+  }
+}
+

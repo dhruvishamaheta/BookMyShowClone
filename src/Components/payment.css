@@ -1,0 +1,480 @@
+.payment-page {
+  min-height: 100vh;
+  padding: 36px 20px 56px;
+  background: #f8fafc;
+  color: #0f172a;
+  font-family: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.payment-verification-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(3, 7, 18, 0.86);
+}
+
+.payment-verification-modal {
+  width: min(420px, 100%);
+  padding: 30px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: #090b12;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+}
+
+.payment-verification-modal h3 {
+  margin: 18px 0 8px;
+  color: #fff;
+}
+
+.payment-verification-modal p {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.55;
+}
+
+.payment-verification-modal span {
+  display: block;
+  margin-top: 16px;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.payment-loader {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #f84464;
+  border-radius: 50%;
+  animation: payment-loader-spin 0.8s linear infinite;
+}
+
+@keyframes payment-loader-spin {
+  to { transform: rotate(360deg); }
+}
+
+.payment-card {
+  max-width: 720px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
+}
+
+.payment-card h2,
+.payment-card h3 {
+  color: #0f172a;
+  margin: 6px 0 14px;
+}
+
+.section-kicker {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #f84464;
+  margin-bottom: 4px;
+}
+
+.detail-card {
+  border: 1px solid #edf2f7;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  background: #f8fafc;
+}
+
+.detail-card p {
+  margin: 6px 0;
+  color: #334155;
+  font-size: 14px;
+}
+
+/* =========================================================
+   Offers & Promo Code Section on Payment Page
+   ========================================================= */
+
+.payment-offers-section {
+  background: #fff5f7;
+  border: 1.5px dashed #fecdd3;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.offers-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.offers-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #9f1239;
+  font-size: 14.5px;
+}
+
+.offers-count-badge {
+  background: #ffe4e6;
+  color: #e11d48;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 1px solid #fecdd3;
+}
+
+/* Input Form */
+.coupon-input-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.coupon-text-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  outline: none;
+  background: #ffffff;
+  transition: border-color 0.2s ease;
+}
+
+.coupon-text-input:focus {
+  border-color: #f84464;
+  box-shadow: 0 0 0 3px rgba(248, 68, 100, 0.15);
+}
+
+.coupon-apply-btn {
+  background: #f84464;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-weight: 700;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.coupon-apply-btn:hover:not(:disabled) {
+  background: #e63757;
+  transform: translateY(-1px);
+}
+
+.coupon-apply-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+.coupon-remove-btn {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  border-radius: 10px;
+  padding: 0 16px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.coupon-remove-btn:hover {
+  background: #fecaca;
+}
+
+/* Status Alert */
+.coupon-status-alert {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  animation: fadeIn 0.2s ease;
+}
+
+.coupon-status-alert.alert-success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.coupon-status-alert.alert-error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.coupon-status-alert.alert-info {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+}
+
+/* Quick Select Offers List */
+.quick-offers-list {
+  margin-top: 12px;
+  border-top: 1px solid #fed7aa22;
+  padding-top: 10px;
+}
+
+.quick-offers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.quick-offers-header small {
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.toggle-all-coupons-btn {
+  background: none;
+  border: none;
+  color: #f84464;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.available-coupons-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quick-coupon-item {
+  background: #ffffff;
+  border: 1px solid #fecdd3;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.quick-coupon-item.ineligible {
+  opacity: 0.65;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.coupon-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.coupon-code-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.coupon-code-badge code {
+  font-family: monospace;
+  font-weight: 800;
+  font-size: 13px;
+  color: #9f1239;
+  background: #ffe4e6;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.coupon-ribbon {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #e11d48;
+}
+
+.coupon-desc-short {
+  font-size: 12px;
+  color: #475569;
+  margin: 2px 0 0 !important;
+}
+
+.coupon-min-order {
+  font-size: 11px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.quick-apply-btn {
+  background: #fff1f2;
+  color: #e11d48;
+  border: 1px solid #fda4af;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.quick-apply-btn:hover:not(:disabled) {
+  background: #e11d48;
+  color: #ffffff;
+  border-color: #e11d48;
+}
+
+.quick-apply-btn:disabled {
+  background: #f1f5f9;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+  cursor: not-allowed;
+}
+
+/* Pricing Breakdown */
+.pricing-breakdown-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+}
+
+.selected-pass-summary {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.selected-pass-summary p {
+  margin: 0;
+  color: #475569;
+  font-size: 13px;
+}
+
+.pricing-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+  color: #334155;
+}
+
+.pricing-row.discount-row {
+  color: #059669;
+  font-weight: 700;
+  background: #ecfdf5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin: 6px 0;
+}
+
+.discount-amount {
+  font-size: 15px;
+}
+
+.pricing-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 10px 0;
+}
+
+.pricing-row.grand-total-row {
+  font-size: 17px;
+  color: #0f172a;
+  padding-top: 4px;
+}
+
+.final-price-text {
+  color: #f84464;
+  font-size: 20px;
+}
+
+.total-savings-banner {
+  margin-top: 10px;
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Payment Options */
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.pay-btn {
+  background: linear-gradient(135deg, #f84464 0%, #e63757 100%);
+  color: #ffffff;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(248, 68, 100, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pay-btn:hover {
+  background: #d62d4c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(248, 68, 100, 0.4);
+}
+
+@media (max-width: 600px) {
+  .payment-page {
+    padding: 20px 12px 40px;
+  }
+
+  .payment-card {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  .coupon-input-group {
+    flex-direction: column;
+  }
+
+  .coupon-apply-btn,
+  .coupon-remove-btn {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .payment-offers-section {
+    padding: 14px 12px;
+  }
+
+  .pricing-row.grand-total-row {
+    font-size: 15px;
+  }
+
+  .final-price-text {
+    font-size: 18px;
+  }
+}
+
